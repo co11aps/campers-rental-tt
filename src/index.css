@@ -1,0 +1,30 @@
+:root {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+body {
+  --main-color: #101828;
+  --text-color: #475467;
+  --gray-color: #6C717B;
+  --button-color: #E44848;
+  --button-hover-color: #D84343;
+  --rating-color: #FFC531;
+  --gray-light-color: #DADDE1;
+  --badges-color: #F2F4F7;
+  --inputs-color: #F7F7F7;
+  --white-color: #FFFFFF;
+}
