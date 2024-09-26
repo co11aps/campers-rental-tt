@@ -33,6 +33,11 @@ const FiltersPanel = () => {
     <aside>
       <form id="filters">
         <div>
+          <label htmlFor="">
+            <input type="text" />
+          </label>
+        </div>
+        <div>
           <h2>Vehicle equipment</h2>
           <div className={css.filtersContainer}>
             <FilterBtn

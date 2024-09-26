@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
-import { campersReducer } from "./campers/slice";
-import { filtersReducer } from "./filters/slice";
+import { campersReducer } from './campers/slice';
+// import { filtersReducer } from './filters/slice';
 
 import {
   persistStore,
@@ -12,22 +12,23 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
 // Persisting token field from auth slice to localstorage
-const campersPersistConfig = {
-  key: "campers", // Ключ кореневого об'єкта, в якому будуть зберігатися дані
+const favouritesPersistConfig = {
+  key: 'favourites', // Ключ кореневого об'єкта, в якому будуть зберігатися дані
   storage: storage,
-  whitelist: ["isFavourite"],
+  whitelist: ['favouriteList'],
 };
 
 export const store = configureStore({
   reducer: {
-    campers: persistReducer(campersPersistConfig, campersReducer),
-    filters: filtersReducer,
+    favourites: persistReducer(favouritesPersistConfig, campersReducer),
+    // filters: filtersReducer,
+    campers: campersReducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

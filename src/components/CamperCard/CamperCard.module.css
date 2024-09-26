@@ -6,12 +6,48 @@
     padding: 24px;
     width: 888px;
     height: 368px;
+    margin-bottom: 32px;
 }
 
 .img {
+    flex-shrink: 0;
     width: 292px;
     height: 320px;
     border-radius: 10px;
-    border: 1px solid red;
     object-fit: cover;
+}
+
+.descriptionText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 525px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .cardHeader h2, */
+.cardHeader span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+}
+
+.button {
+    margin-top: 50px;
+}
+
+.icon {
+    margin: auto;
+    width: 24px;
+    height: 24px;
+    display: inline;
 }
