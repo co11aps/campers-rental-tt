@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    border-bottom: 1px solid var(--badges-color);
+    background-color: var(--inputs-color);
+    padding: 24px 64px;
+    width: 1440px;
+    height: 72px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 136px;
+    height: 16px;
+    padding: 0;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-image: url(/src/images/Logo.png);
+    margin-right: 450px;
+}
+
+.header ul {
+    display: flex;
+    gap: 32px
+}

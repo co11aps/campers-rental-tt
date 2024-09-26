@@ -1,0 +1,11 @@
+.filtersContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+.filerIcon {
+    width: 32px;
+    height: 32px;
+}

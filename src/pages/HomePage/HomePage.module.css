@@ -1,0 +1,29 @@
+.homePage {
+    width: 1440px;
+    height: 696px;
+    padding: 260px 64px 0 64px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-image: url(/src/images/hero.png);
+    color: var(--inputs-color);
+
+
+    h1 {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 0.66667;
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 24px;
+        font-stretch: 150%;
+        line-height: 1.33333;
+        margin-bottom: 56px;
+    }
+}

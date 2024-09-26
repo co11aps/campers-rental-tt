@@ -1,0 +1,17 @@
+.card {
+    display: flex;
+    gap: 24px;
+    border: 1px solid #dadde1;
+    border-radius: 20px;
+    padding: 24px;
+    width: 888px;
+    height: 368px;
+}
+
+.img {
+    width: 292px;
+    height: 320px;
+    border-radius: 10px;
+    border: 1px solid red;
+    object-fit: cover;
+}
