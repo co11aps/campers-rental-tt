@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import css from './DetailsPage.module.css';
 import { useEffect } from 'react';
 import { fetchCamperById } from '../../redux/campers/operations';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { isLoading, selectCamperById } from '../../redux/campers/selectors';
-import { BsMap, BsStarFill, BsSuitHeart } from 'react-icons/bs';
+import { useParams } from 'react-router-dom';
 import DescriptionBlock from '../../components/DescriptionBlock/DescriptionBlock';
 
 const DetailsPage = () => {

@@ -1,11 +1,10 @@
 import css from './DescriptionBlock.module.css';
 import { BsMap, BsStarFill, BsSuitHeart } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { isLoading, selectCamperById } from '../../redux/campers/selectors';
 import Loader from '../Loader/Loader';
 import { Suspense, useEffect } from 'react';
-import { fetchCamperById } from '../../redux/campers/operations';
 
 const DescriptionBlock = () => {
   const isDataLoading = useSelector(isLoading);
