@@ -29,9 +29,13 @@ const CamperCard = ({
           </span>
           <p className={css.descriptionText}>{description}</p>
         </div>
-        <Link to={`/catalog/${id}`} state={reLocation}>
+
+        <a href={`/catalog/${id}`} target="_blank" rel="noopener noreferrer">
           <button className={css.button}>Show more</button>
-        </Link>
+        </a>
+        {/* <Link to={`/catalog/${id}`} state={reLocation}>
+          <button className={css.button}>Show more</button>
+        </Link> */}
       </div>
     </div>
   );

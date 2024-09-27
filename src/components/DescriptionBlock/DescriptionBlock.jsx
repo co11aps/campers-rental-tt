@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { isLoading, selectCamperById } from '../../redux/campers/selectors';
 import Loader from '../Loader/Loader';
-import { Suspense, useEffect } from 'react';
 
 const DescriptionBlock = () => {
   const isDataLoading = useSelector(isLoading);
@@ -20,7 +19,7 @@ const DescriptionBlock = () => {
       ) : (
         <div className={css.card}>
           <img
-            // src={gallery[0].thumb}
+            src={gallery[0].thumb}
             alt="Camper's photo"
             className={css.img}
           />
@@ -42,9 +41,6 @@ const DescriptionBlock = () => {
               </span>
               <p className={css.descriptionText}>{description}</p>
             </div>
-            <Link to={`/catalog/${id}`} state={reLocation}>
-              <button className={css.button}>Show more</button>
-            </Link>
           </div>
         </div>
       )}
