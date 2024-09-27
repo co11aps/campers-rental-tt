@@ -10,10 +10,8 @@ import {
 import clsx from 'clsx';
 import { selectFavorites } from '../../redux/favorites/selectors';
 
-const CamperCard = ({
-  camper,
-  camper: { name, description, price, location, gallery, id },
-}) => {
+const CamperCard = ({ camper }) => {
+  const { name, description, price, location, gallery, id } = camper;
   const reLocation = useLocation();
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);

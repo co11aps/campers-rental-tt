@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import favoritesReducer from './favorites/slice';
+import { favoritesReducer } from './favorites/slice';
 import { campersReducer } from './campers/slice';
 // import { filtersReducer } from './filters/slice';
 
@@ -15,17 +15,16 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
-// Persisting token field from auth slice to localstorage
 const campersPersistConfig = {
-  key: 'campers', // Ключ кореневого об'єкта, в якому будуть зберігатися дані
+  key: 'campers',
   storage: storage,
   whitelist: ['details'],
 };
 
 const favoritesPersistConfig = {
-  key: 'favorites', // Ключ кореневого об'єкта
+  key: 'favorites',
   storage: storage,
-  whitelist: ['items'], // Сохраняем только items
+  whitelist: ['items'],
 };
 
 export const store = configureStore({

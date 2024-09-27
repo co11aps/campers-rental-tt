@@ -9,17 +9,17 @@ const favoritesSlice = createSlice({
   },
   reducers: {
     addToFavorites: (state, action) => {
-      const product = action.payload;
-      if (!state.items.find(item => item.id === product.id)) {
-        state.items.push(product);
+      const camper = action.payload;
+      if (!state.items.find(item => item.id === camper.id)) {
+        state.items.push(camper);
       }
     },
     removeFromFavorites: (state, action) => {
-      const productId = action.payload;
-      state.items = state.items.filter(item => item.id !== productId);
+      const camperId = action.payload;
+      state.items = state.items.filter(item => item.id !== camperId);
     },
   },
 });
 
 export const { addToFavorites, removeFromFavorites } = favoritesSlice.actions;
-export default favoritesSlice.reducer;
+export const favoritesReducer = favoritesSlice.reducer;
