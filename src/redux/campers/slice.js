@@ -5,9 +5,23 @@ const campersSlice = createSlice({
   name: 'campers',
   initialState: {
     items: [],
+    visibleItems: [],
+    page: 1,
+    itemsPerPage: 3,
     details: {},
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    incrementPage(state) {
+      state.page += 1;
+      const startIndex = (state.page - 1) * state.itemsPerPage;
+      const newItems = state.items.slice(
+        startIndex,
+        startIndex + state.itemsPerPage
+      );
+      state.visibleItems = [...state.visibleItems, ...newItems];
+    },
   },
   extraReducers: builder => {
     builder
@@ -18,6 +32,7 @@ const campersSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
+        state.visibleItems = state.items.slice(0, state.itemsPerPage);
       })
       .addCase(fetchCampers.rejected, (state, action) => {
         state.isLoading = false;
@@ -37,5 +52,7 @@ const campersSlice = createSlice({
       });
   },
 });
+
+export const { incrementPage } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;

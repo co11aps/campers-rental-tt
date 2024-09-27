@@ -20,7 +20,7 @@ const DescriptionBlock = () => {
       ) : (
         <div className={css.card}>
           <img
-            src={gallery[0].thumb}
+            // src={gallery[0].thumb}
             alt="Camper's photo"
             className={css.img}
           />
