@@ -16,6 +16,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+
   --main-color: #101828;
   --text-color: #475467;
   --gray-color: #6C717B;

@@ -16,17 +16,16 @@ import {
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
 // Persisting token field from auth slice to localstorage
-const favouritesPersistConfig = {
-  key: 'favourites', // Ключ кореневого об'єкта, в якому будуть зберігатися дані
+const campersPersistConfig = {
+  key: 'campers', // Ключ кореневого об'єкта, в якому будуть зберігатися дані
   storage: storage,
-  whitelist: ['favouriteList'],
+  whitelist: ['details'],
 };
 
 export const store = configureStore({
   reducer: {
-    favourites: persistReducer(favouritesPersistConfig, campersReducer),
+    campers: persistReducer(campersPersistConfig, campersReducer),
     // filters: filtersReducer,
-    campers: campersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

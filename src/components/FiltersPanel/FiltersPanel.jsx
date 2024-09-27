@@ -30,7 +30,7 @@ const FiltersPanel = () => {
   };
 
   return (
-    <aside>
+    <aside className={css.panel}>
       <form id="filters">
         <div>
           <label htmlFor="">

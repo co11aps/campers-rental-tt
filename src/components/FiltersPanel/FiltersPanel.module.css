@@ -4,6 +4,9 @@
     gap: 12px;
 }
 
+.panel {
+    width: 360px;
+}
 
 .filerIcon {
     width: 32px;
