@@ -1,0 +1,8 @@
+.gallery {
+    height: 312px;
+    border: 1px solid red;
+}
+
+.starIcon {
+    fill: var(--rating-color);
+}

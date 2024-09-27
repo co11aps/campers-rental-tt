@@ -34,7 +34,7 @@ const CamperCard = ({ camper }) => {
             <h2>{name}</h2>
             <span>
               &#8364;
-              {price}{' '}
+              {price}
               <BsSuitHeart
                 onClick={handleFavoriteClick}
                 className={clsx(css.icon, isFavorite && css.favorite)}
@@ -43,15 +43,23 @@ const CamperCard = ({ camper }) => {
           </div>
           <BsStarFill />
           <span>
-            <Link to={`/catalog/${id}/reviews`} state={reLocation}>
+            <a
+              href={`/catalog/${id}/reviews`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               4.2 (10 Reviews)
-            </Link>
+            </a>
             <BsMap /> {location}
           </span>
           <p className={css.descriptionText}>{description}</p>
         </div>
 
-        <a href={`/catalog/${id}`} target="_blank" rel="noopener noreferrer">
+        <a
+          href={`/catalog/${id}/features`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <button className={css.button}>Show more</button>
         </a>
       </div>

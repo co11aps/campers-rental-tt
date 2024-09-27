@@ -1,0 +1,16 @@
+.detailsPage {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 48px 64px;
+}
+
+.bottomContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feachersContainer {
+    width: 631px;
+    height: 588px;
+    border: 1px solid blue;
+}

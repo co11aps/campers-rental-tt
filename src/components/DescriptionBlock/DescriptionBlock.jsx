@@ -1,9 +1,9 @@
 import css from './DescriptionBlock.module.css';
 import { BsMap, BsStarFill, BsSuitHeart } from 'react-icons/bs';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { isLoading, selectCamperById } from '../../redux/campers/selectors';
-import Loader from '../Loader/Loader';
+// import Loader from '../Loader/Loader';
 
 const DescriptionBlock = () => {
   const isDataLoading = useSelector(isLoading);
@@ -17,31 +17,20 @@ const DescriptionBlock = () => {
       {isDataLoading ? (
         <div>Loading</div>
       ) : (
-        <div className={css.card}>
-          <img
-            src={gallery[0].thumb}
-            alt="Camper's photo"
-            className={css.img}
-          />
-          <div className={css.info}>
-            <div>
-              <div className={css.cardHeader}>
-                <h2>{name}</h2>
-                <span>
-                  &#8364;
-                  {price} <BsSuitHeart className={css.icon} />
-                </span>
-              </div>
-              <BsStarFill />
-              <span>
-                <Link to={`/catalog/${id}/reviews`} state={reLocation}>
-                  4.2 (10 Reviews)
-                </Link>
-                <BsMap /> {location}
-              </span>
-              <p className={css.descriptionText}>{description}</p>
-            </div>
+        <div className={css.cardHeader}>
+          <h2 className={css.camperName}>{name}</h2>
+          <span>
+            <Link to={`/catalog/${id}/reviews`} state={reLocation}>
+              <BsStarFill className={css.starIcon} /> 4.2 (10 Reviews)
+            </Link>
+            <BsMap /> {location}
+          </span>
+          <div>
+            &#8364;
+            {price}
           </div>
+          <div className={css.gallery}>Gallery</div>
+          <p className={css.descriptionText}>{description}</p>
         </div>
       )}
     </div>
