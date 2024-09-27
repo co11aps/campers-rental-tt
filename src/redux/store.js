@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-
+import favoritesReducer from './favorites/slice';
 import { campersReducer } from './campers/slice';
 // import { filtersReducer } from './filters/slice';
 
@@ -22,8 +22,15 @@ const campersPersistConfig = {
   whitelist: ['details'],
 };
 
+const favoritesPersistConfig = {
+  key: 'favorites', // Ключ кореневого об'єкта
+  storage: storage,
+  whitelist: ['items'], // Сохраняем только items
+};
+
 export const store = configureStore({
   reducer: {
+    favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
     campers: persistReducer(campersPersistConfig, campersReducer),
     // filters: filtersReducer,
   },

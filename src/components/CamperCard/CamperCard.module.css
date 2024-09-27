@@ -51,3 +51,7 @@
     height: 24px;
     display: inline;
 }
+
+.favorite {
+    fill: var(--button-color);
+}

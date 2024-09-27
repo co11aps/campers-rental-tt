@@ -1,12 +1,31 @@
 import css from './CamperCard.module.css';
 import { BsMap, BsStarFill } from 'react-icons/bs';
 import { BsSuitHeart } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../redux/favorites/slice';
+import clsx from 'clsx';
+import { selectFavorites } from '../../redux/favorites/selectors';
 
 const CamperCard = ({
+  camper,
   camper: { name, description, price, location, gallery, id },
 }) => {
   const reLocation = useLocation();
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = favorites.some(fav => fav.id === id);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      dispatch(removeFromFavorites(id));
+    } else {
+      dispatch(addToFavorites(camper));
+    }
+  };
 
   return (
     <div className={css.card}>
@@ -17,7 +36,11 @@ const CamperCard = ({
             <h2>{name}</h2>
             <span>
               &#8364;
-              {price} <BsSuitHeart className={css.icon} />
+              {price}{' '}
+              <BsSuitHeart
+                onClick={handleFavoriteClick}
+                className={clsx(css.icon, isFavorite && css.favorite)}
+              />
             </span>
           </div>
           <BsStarFill />
@@ -33,9 +56,6 @@ const CamperCard = ({
         <a href={`/catalog/${id}`} target="_blank" rel="noopener noreferrer">
           <button className={css.button}>Show more</button>
         </a>
-        {/* <Link to={`/catalog/${id}`} state={reLocation}>
-          <button className={css.button}>Show more</button>
-        </Link> */}
       </div>
     </div>
   );
