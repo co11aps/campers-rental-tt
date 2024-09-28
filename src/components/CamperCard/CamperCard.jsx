@@ -1,18 +1,42 @@
 import css from './CamperCard.module.css';
-import { BsMap, BsStarFill } from 'react-icons/bs';
+import {
+  BsDiagram3,
+  BsFuelPump,
+  BsMap,
+  BsStarFill,
+  BsWind,
+} from 'react-icons/bs';
 import { BsSuitHeart } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
 import {
   addToFavorites,
   removeFromFavorites,
 } from '../../redux/favorites/slice';
 import clsx from 'clsx';
 import { selectFavorites } from '../../redux/favorites/selectors';
+import OptionsList from '../OptionsList/OptionsList';
+import OptionItem from '../OptionItem/OptionItem';
 
 const CamperCard = ({ camper }) => {
-  const { name, description, price, location, gallery, id } = camper;
-  const reLocation = useLocation();
+  const {
+    name,
+    description,
+    price,
+    location,
+    gallery,
+    id,
+    // transmission = 'Automatic',
+    // engine = 'Diesel',
+    // AC,
+    // bathroom,
+    // kitchen,
+    // TV,
+    // radio,
+    // refrigerator,
+    // microwave,
+    // gas,
+    // water,
+  } = camper;
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
   const isFavorite = favorites.some(fav => fav.id === id);
@@ -54,7 +78,7 @@ const CamperCard = ({ camper }) => {
           </span>
           <p className={css.descriptionText}>{description}</p>
         </div>
-
+        <OptionsList options={camper} />
         <a
           href={`/catalog/${id}/features`}
           target="_blank"
