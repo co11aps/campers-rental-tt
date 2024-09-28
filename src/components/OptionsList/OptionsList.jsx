@@ -1,8 +1,9 @@
 import OptionItem from '../OptionItem/OptionItem';
 import css from './OptionsList.module.css';
+import { capitalizeFirstLetter } from '../../utils/utils';
 import {
-  BsBadgeWc,
   BsCupHot,
+  BsCupStraw,
   BsDiagram3,
   BsDisplay,
   BsDroplet,
@@ -14,7 +15,7 @@ import {
   BsWind,
 } from 'react-icons/bs';
 
-const OptionsList = ({ options }) => {
+const OptionsList = ({ options, variant }) => {
   const {
     transmission,
     engine,
@@ -27,31 +28,26 @@ const OptionsList = ({ options }) => {
     microwave,
     gas,
     water,
-  } = options;
-
-  const capitalizeFirstLetter = str => {
-    if (!str) return '';
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
+  } = options || {};
 
   return (
     <div>
       <ul className={css.optionsList}>
         <li>
-          <OptionItem>
+          <OptionItem variant={variant}>
             <BsDiagram3 className={css.optionsIcon} />
-            <p>{capitalizeFirstLetter(`${transmission}`)}</p>
+            <p>{capitalizeFirstLetter(`${transmission}`) || 'N/A'}</p>
           </OptionItem>
         </li>
         <li>
-          <OptionItem>
+          <OptionItem variant={variant}>
             <BsFuelPump className={css.optionsIcon} />
-            <p>{capitalizeFirstLetter(`${engine}`)}</p>
+            <p>{capitalizeFirstLetter(`${engine}`) || 'N/A'}</p>
           </OptionItem>
         </li>
         {AC && (
           <li>
-            <OptionItem>
+            <OptionItem variant={variant}>
               <BsWind className={css.optionsIcon} />
               <p>AC</p>
             </OptionItem>
@@ -59,15 +55,15 @@ const OptionsList = ({ options }) => {
         )}
         {bathroom && (
           <li>
-            <OptionItem>
-              <BsBadgeWc className={css.optionsIcon} />
+            <OptionItem variant={variant}>
+              <BsDroplet className={css.optionsIcon} />
               <p>Bathroom</p>
             </OptionItem>
           </li>
         )}
         {kitchen && (
           <li>
-            <OptionItem>
+            <OptionItem variant={variant}>
               <BsCupHot className={css.optionsIcon} />
               <p>Kitchen</p>
             </OptionItem>
@@ -75,7 +71,7 @@ const OptionsList = ({ options }) => {
         )}
         {TV && (
           <li>
-            <OptionItem>
+            <OptionItem variant={variant}>
               <BsDisplay className={css.optionsIcon} />
               <p>TV</p>
             </OptionItem>
@@ -83,7 +79,7 @@ const OptionsList = ({ options }) => {
         )}
         {radio && (
           <li>
-            <OptionItem>
+            <OptionItem variant={variant}>
               <BsUiRadios className={css.optionsIcon} />
               <p>Radio</p>
             </OptionItem>
@@ -91,15 +87,15 @@ const OptionsList = ({ options }) => {
         )}
         {water && (
           <li>
-            <OptionItem>
-              <BsDroplet className={css.optionsIcon} />
+            <OptionItem variant={variant}>
+              <BsCupStraw className={css.optionsIcon} />
               <p>Water</p>
             </OptionItem>
           </li>
         )}
         {refrigerator && (
           <li>
-            <OptionItem>
+            <OptionItem variant={variant}>
               <BsSnow className={css.optionsIcon} />
               <p>Refrigerator</p>
             </OptionItem>
@@ -107,7 +103,7 @@ const OptionsList = ({ options }) => {
         )}
         {microwave && (
           <li>
-            <OptionItem>
+            <OptionItem variant={variant}>
               <BsReverseLayoutSidebarReverse className={css.optionsIcon} />
               <p>Microwave</p>
             </OptionItem>
@@ -115,7 +111,7 @@ const OptionsList = ({ options }) => {
         )}
         {gas && (
           <li>
-            <OptionItem>
+            <OptionItem variant={variant}>
               <BsFire className={css.optionsIcon} />
               <p>Gas</p>
             </OptionItem>

@@ -1,5 +1,5 @@
 import css from './DescriptionBlock.module.css';
-import { BsMap, BsStarFill, BsSuitHeart } from 'react-icons/bs';
+import { BsMap, BsStarFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { isLoading, selectCamperById } from '../../redux/campers/selectors';

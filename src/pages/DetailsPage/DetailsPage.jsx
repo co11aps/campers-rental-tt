@@ -1,10 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './DetailsPage.module.css';
 import { Suspense, useEffect } from 'react';
 import { fetchCamperById } from '../../redux/campers/operations';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import DescriptionBlock from '../../components/DescriptionBlock/DescriptionBlock';
 import BookingForm from '../../components/BookingForm/BookingForm';
+import { isLoading, selectCamperById } from '../../redux/campers/selectors';
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,9 @@ const DetailsPage = () => {
   useEffect(() => {
     dispatch(fetchCamperById(camperId));
   }, [dispatch, camperId]);
+
+  const camper = useSelector(selectCamperById);
+  // const loading = useSelector(isLoading);
 
   return (
     <div className={css.detailsPage}>
@@ -25,8 +29,9 @@ const DetailsPage = () => {
 
       <div className={css.bottomContainer}>
         <div className={css.feachersContainer}>
+          {/* {loading ? <div>Loading...</div> : <Outlet options={camper} />} */}
           <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
+            <Outlet context={{ camper }} />
           </Suspense>
         </div>
         <BookingForm />

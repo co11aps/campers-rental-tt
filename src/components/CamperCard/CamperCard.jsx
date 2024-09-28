@@ -78,7 +78,7 @@ const CamperCard = ({ camper }) => {
           </span>
           <p className={css.descriptionText}>{description}</p>
         </div>
-        <OptionsList options={camper} />
+        <OptionsList options={camper} variant="light" />
         <a
           href={`/catalog/${id}/features`}
           target="_blank"
