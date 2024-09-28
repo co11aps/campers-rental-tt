@@ -3,6 +3,7 @@ import { BsMap, BsStarFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { isLoading, selectCamperById } from '../../redux/campers/selectors';
+import Gallery from '../Gallery/Gallery';
 // import Loader from '../Loader/Loader';
 
 const DescriptionBlock = () => {
@@ -29,7 +30,9 @@ const DescriptionBlock = () => {
             &#8364;
             {price}
           </div>
-          <div className={css.gallery}>Gallery</div>
+          <div className={css.gallery}>
+            <Gallery pictures={gallery} />
+          </div>
           <p className={css.descriptionText}>{description}</p>
         </div>
       )}

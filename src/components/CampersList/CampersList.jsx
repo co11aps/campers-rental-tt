@@ -23,7 +23,6 @@ const CampersList = () => {
         <div className={css.camperList}>Loading</div>
       ) : (
         <div>
-          {' '}
           <ul className={css.camperList}>
             {visibleItems.map(camper => {
               return (

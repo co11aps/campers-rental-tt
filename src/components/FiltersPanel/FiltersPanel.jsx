@@ -9,8 +9,10 @@ import {
   BsGrid,
   BsGrid1X2,
   BsGrid3X3Gap,
+  BsSuitHeart,
   BsWind,
 } from 'react-icons/bs';
+import clsx from 'clsx';
 
 const FiltersPanel = () => {
   const [formFactor, setFormFactor] = useState(null);
@@ -33,10 +35,10 @@ const FiltersPanel = () => {
     <aside className={css.panel}>
       <form id="filters">
         <div>
-          <label htmlFor="">
-            <input type="text" />
-          </label>
+          <label htmlFor="locationField">Location</label>
+          <input type="text" name="location" id="locationField" />
         </div>
+        <p>Filters</p>
         <div>
           <h2>Vehicle equipment</h2>
           <div className={css.filtersContainer}>
@@ -90,6 +92,16 @@ const FiltersPanel = () => {
               <BsDroplet className={css.filerIcon} />
               <p>Bathroom</p>
             </FilterBtn>
+            <FilterBtn
+              type="checkbox"
+              name="filter"
+              value="favorites"
+              checked={selectedCheckboxes.includes('favorites')}
+              onChange={() => handleCheckboxChange('favorites')}
+            >
+              <BsSuitHeart className={clsx(css.filerIcon, css.favorite)} />
+              <p>Favorites</p>
+            </FilterBtn>
           </div>
         </div>
 
@@ -127,6 +139,10 @@ const FiltersPanel = () => {
               <p>Alcove</p>
             </FilterBtn>
           </div>
+        </div>
+        <div>
+          <button type="submit">Search</button>
+          <button type="button">Reset filters</button>
         </div>
       </form>
     </aside>

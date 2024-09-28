@@ -18,25 +18,7 @@ import OptionsList from '../OptionsList/OptionsList';
 import OptionItem from '../OptionItem/OptionItem';
 
 const CamperCard = ({ camper }) => {
-  const {
-    name,
-    description,
-    price,
-    location,
-    gallery,
-    id,
-    // transmission = 'Automatic',
-    // engine = 'Diesel',
-    // AC,
-    // bathroom,
-    // kitchen,
-    // TV,
-    // radio,
-    // refrigerator,
-    // microwave,
-    // gas,
-    // water,
-  } = camper;
+  const { name, description, price, location, gallery, id } = camper;
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
   const isFavorite = favorites.some(fav => fav.id === id);
