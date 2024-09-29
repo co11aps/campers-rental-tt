@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import css from './FiltersPanel.module.css';
 import FilterBtn from '../FilterBtn/FilterBtn';
 import {
@@ -21,14 +21,14 @@ import {
   toggleFavoritesOnly,
 } from '../../redux/filters/slice';
 import { useDispatch, useSelector } from 'react-redux';
-import { applyFilters } from '../../redux/campers/slice';
 
 const FiltersPanel = () => {
   const dispatch = useDispatch();
+  // const [formFactor, setFormFactor] = useState(null);
+  // const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   const { selectedCheckboxes, formFactor, showFavoritesOnly } = useSelector(
     state => state.filters
   );
-  const favorites = useSelector(state => state.favorites.items); // Assuming favorites are stored in a separate slice
 
   const handleCheckboxChange = value => {
     dispatch(toggleCheckbox(value));
@@ -46,21 +46,9 @@ const FiltersPanel = () => {
     dispatch(toggleFavoritesOnly());
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(
-      applyFilters({
-        selectedCheckboxes,
-        formFactor,
-        showFavoritesOnly,
-        favorites,
-      })
-    );
-  };
-
   return (
     <aside className={css.panel}>
-      <form id="filters" onSubmit={handleSubmit}>
+      <form id="filters">
         <div className={css.locationBlock}>
           <label htmlFor="locationField">Location</label>
           <input
@@ -130,8 +118,8 @@ const FiltersPanel = () => {
               type="checkbox"
               name="filter"
               value="favorites"
-              checked={showFavoritesOnly}
-              onChange={handleToggleFavorites}
+              checked={selectedCheckboxes.includes('favorites')}
+              onChange={() => handleToggleFavorites('favorites')}
             >
               <BsSuitHeart className={clsx(css.filerIcon, css.favorite)} />
               <p>Favorites</p>

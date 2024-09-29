@@ -1,0 +1,41 @@
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    color: var(--button-color);
+    background-color: var(--badges-color);
+}
+
+.head {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.name {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #101828;
+}
+
+.rating {
+    display: flex;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.comment {
+    margin-bottom: 44px;
+}

@@ -108,6 +108,7 @@
     width: 24px;
     height: 24px;
     display: inline;
+    cursor: pointer;
 }
 
 .favorite {

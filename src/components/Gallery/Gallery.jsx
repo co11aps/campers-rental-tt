@@ -16,10 +16,11 @@ const Gallery = ({ pictures }) => {
               return (
                 <li key={index}>
                   <img
+                    className={css.img}
                     src={picture.thumb}
                     alt="Camper image"
-                    width={292}
-                    height={312}
+                    width={300}
+                    height={300}
                   />
                 </li>
               );

@@ -22,6 +22,30 @@ const campersSlice = createSlice({
       );
       state.visibleItems = [...state.visibleItems, ...newItems];
     },
+    applyFilters(state, action) {
+      const { selectedCheckboxes, formFactor, showFavoritesOnly, favorites } =
+        action.payload;
+
+      let filteredItems = state.items;
+
+      if (selectedCheckboxes.length > 0) {
+        filteredItems = filteredItems.filter(item =>
+          selectedCheckboxes.every(checkbox => item.features.includes(checkbox))
+        );
+      }
+
+      if (formFactor) {
+        filteredItems = filteredItems.filter(item => item.type === formFactor);
+      }
+
+      if (showFavoritesOnly) {
+        filteredItems = filteredItems.filter(item =>
+          favorites.includes(item.id)
+        );
+      }
+
+      state.visibleItems = filteredItems.slice(0, state.itemsPerPage);
+    },
   },
   extraReducers: builder => {
     builder
@@ -53,6 +77,6 @@ const campersSlice = createSlice({
   },
 });
 
-export const { incrementPage } = campersSlice.actions;
+export const { incrementPage, applyFilters } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;

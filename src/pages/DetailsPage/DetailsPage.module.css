@@ -12,5 +12,56 @@
 .feachersContainer {
     width: 631px;
     height: 588px;
-    border: 1px solid blue;
+}
+
+.link {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+}
+
+.addLinks {
+    display: flex;
+    gap: 40px;
+    height: 48px;
+    border-bottom: 1px solid var(--gray-light-color);
+    margin-bottom: 44px;
+}
+
+
+.link {
+    position: relative;
+    text-decoration: none;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--button-color);
+    /* Цвет подчеркивания */
+    transition: width 0.2s ease-in-out;
+    /* Анимация появления подчеркивания */
+}
+
+.link.active::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--button-color);
+    /* Цвет подчеркивания */
+    transition: width 0.2s ease-in-out;
+    /* Анимация появления подчеркивания */
+}
+
+.link:hover::before {
+    width: 100%;
 }

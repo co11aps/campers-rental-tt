@@ -1,0 +1,21 @@
+.featuresBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 44px;
+    width: 631px;
+    height: 588px;
+    background: #f7f7f7;
+}
+
+.subTitle {
+    height: 48px;
+    border-bottom: 1px solid var(--gray-light-color);
+    margin-bottom: 24px;
+    margin-top: 32px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+}

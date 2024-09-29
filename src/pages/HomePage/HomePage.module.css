@@ -8,22 +8,45 @@
     background-repeat: no-repeat;
     background-image: url(/src/images/hero.png);
     color: var(--inputs-color);
+}
+
+.homePage h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 0.66667;
+    margin-bottom: 16px;
+}
+
+.homePage p {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    font-stretch: 150%;
+    line-height: 1.33333;
+    margin-bottom: 56px;
+}
 
 
-    h1 {
-        font-family: "Inter", sans-serif;
-        font-weight: 600;
-        font-size: 48px;
-        line-height: 0.66667;
-        margin-bottom: 16px;
-    }
+.button {
+    margin-top: 0;
+    vertical-align: bottom;
+    border-radius: 200px;
+    padding: 16px 20px;
+    width: 166px;
+    height: 56px;
+    background-color: var(--button-color);
+    color: var(--white-color);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+}
 
-    p {
-        font-family: "Inter", sans-serif;
-        font-weight: 600;
-        font-size: 24px;
-        font-stretch: 150%;
-        line-height: 1.33333;
-        margin-bottom: 56px;
-    }
+.button:hover {
+    background-color: var(--button-hover-color);
 }

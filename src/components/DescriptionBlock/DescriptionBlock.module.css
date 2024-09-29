@@ -1,6 +1,41 @@
+.cardHeader {
+    min-height: 528px;
+    margin-bottom: 48px;
+}
+
+.location {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.camperName {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    margin-bottom: 16px;
+}
+
 .gallery {
     height: 312px;
-    border: 1px solid red;
+    margin-bottom: 28px;
+}
+
+.descriptionText {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #475467;
 }
 
 .starIcon {

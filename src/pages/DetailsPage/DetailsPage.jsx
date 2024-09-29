@@ -2,10 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './DetailsPage.module.css';
 import { Suspense, useEffect } from 'react';
 import { fetchCamperById } from '../../redux/campers/operations';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import DescriptionBlock from '../../components/DescriptionBlock/DescriptionBlock';
 import BookingForm from '../../components/BookingForm/BookingForm';
-import { isLoading, selectCamperById } from '../../redux/campers/selectors';
+import { selectCamperById } from '../../redux/campers/selectors';
+import clsx from 'clsx';
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
@@ -16,20 +17,26 @@ const DetailsPage = () => {
   }, [dispatch, camperId]);
 
   const camper = useSelector(selectCamperById);
-  // const loading = useSelector(isLoading);
+
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(css.link, isActive && css.active);
+  };
 
   return (
     <div className={css.detailsPage}>
       <DescriptionBlock />
 
       <div className={css.addLinks}>
-        <Link to="features">Features</Link>
-        <Link to="reviews">Reviews</Link>
+        <NavLink to="features" className={buildLinkClass}>
+          Features
+        </NavLink>
+        <NavLink to="reviews" className={buildLinkClass}>
+          Reviews
+        </NavLink>
       </div>
 
       <div className={css.bottomContainer}>
         <div className={css.feachersContainer}>
-          {/* {loading ? <div>Loading...</div> : <Outlet options={camper} />} */}
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet context={{ camper }} />
           </Suspense>

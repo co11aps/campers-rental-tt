@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { favoritesReducer } from './favorites/slice';
 import { campersReducer } from './campers/slice';
-// import { filtersReducer } from './filters/slice';
+import { filtersReducer } from './filters/slice';
 
 import {
   persistStore,
@@ -31,7 +31,7 @@ export const store = configureStore({
   reducer: {
     favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
     campers: persistReducer(campersPersistConfig, campersReducer),
-    // filters: filtersReducer,
+    filters: filtersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

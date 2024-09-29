@@ -9,8 +9,10 @@ const FeaturesBlock = () => {
   return (
     <div className={css.featuresBlock}>
       <OptionsList options={contextData.camper} />
-      <div>Vehicle details</div>
-      <DetailsList data={contextData.camper} />
+      <div>
+        <div className={css.subTitle}>Vehicle details</div>
+        <DetailsList data={contextData.camper} />
+      </div>
     </div>
   );
 };

@@ -14,19 +14,21 @@ const DescriptionBlock = () => {
     useSelector(selectCamperById);
 
   return (
-    <div>
+    <div className={css.cardHeader}>
       {isDataLoading ? (
-        <div>Loading</div>
+        <div>Loading...</div>
       ) : (
-        <div className={css.cardHeader}>
+        <>
           <h2 className={css.camperName}>{name}</h2>
-          <span>
+          <div className={css.location}>
             <Link to={`/catalog/${id}/reviews`} state={changeLocation}>
               <BsStarFill className={css.starIcon} /> 4.2 (10 Reviews)
             </Link>
-            <BsMap /> {location}
-          </span>
-          <div>
+            <div>
+              <BsMap /> {location}
+            </div>
+          </div>
+          <div className={css.price}>
             &#8364;
             {price.toFixed(2)}
           </div>
@@ -34,7 +36,7 @@ const DescriptionBlock = () => {
             <Gallery pictures={gallery} />
           </div>
           <p className={css.descriptionText}>{description}</p>
-        </div>
+        </>
       )}
     </div>
   );

@@ -1,4 +1,13 @@
 .gallery {
     display: flex;
     gap: 24px;
+    justify-content: space-between;
+}
+
+.img {
+    object-fit: cover;
+    border-radius: 10px;
+    width: 452px;
+    height: 312px;
+    transition: transform 0.3s ease;
 }
