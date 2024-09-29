@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import css from './FiltersPanel.module.css';
 import FilterBtn from '../FilterBtn/FilterBtn';
 import {
@@ -28,7 +27,8 @@ const FiltersPanel = () => {
   const { selectedCheckboxes, formFactor, showFavoritesOnly } = useSelector(
     state => state.filters
   );
-  const favorites = useSelector(state => state.favorites.items); // Assuming favorites are stored in a separate slice
+
+  const favorites = useSelector(state => state.favorites.items);
 
   const handleCheckboxChange = value => {
     dispatch(toggleCheckbox(value));
