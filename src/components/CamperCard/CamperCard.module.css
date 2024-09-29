@@ -22,15 +22,37 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 525px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cardHeader {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 525px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    line-height: 1.33333;
+    color: var(--main-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 8px;
 }
 
-/* .cardHeader h2, */
+.cardHeader h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .cardHeader span {
     display: flex;
     align-items: center;
@@ -41,8 +63,44 @@
     line-height: 1.33333;
 }
 
+.satr {
+    fill: var(--rating-color);
+}
+
+.reviewLink {
+    margin-right: 8px;
+}
+
+.reviewLink {
+    margin-right: 16px;
+}
+
+.reviewLink:hover {
+    text-decoration: underline;
+}
+
+
 .button {
-    margin-top: 50px;
+    margin-top: 0;
+    vertical-align: bottom;
+    border-radius: 200px;
+    padding: 16px 20px;
+    width: 166px;
+    height: 56px;
+    background-color: var(--button-color);
+    color: var(--white-color);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
 }
 
 .icon {

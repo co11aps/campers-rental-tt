@@ -1,11 +1,5 @@
 import css from './CamperCard.module.css';
-import {
-  BsDiagram3,
-  BsFuelPump,
-  BsMap,
-  BsStarFill,
-  BsWind,
-} from 'react-icons/bs';
+import { BsMap, BsStarFill } from 'react-icons/bs';
 import { BsSuitHeart } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -15,7 +9,6 @@ import {
 import clsx from 'clsx';
 import { selectFavorites } from '../../redux/favorites/selectors';
 import OptionsList from '../OptionsList/OptionsList';
-import OptionItem from '../OptionItem/OptionItem';
 
 const CamperCard = ({ camper }) => {
   const { name, description, price, location, gallery, id } = camper;
@@ -40,16 +33,17 @@ const CamperCard = ({ camper }) => {
             <h2>{name}</h2>
             <span>
               &#8364;
-              {price}
+              {price.toFixed(2)}
               <BsSuitHeart
                 onClick={handleFavoriteClick}
                 className={clsx(css.icon, isFavorite && css.favorite)}
               />
             </span>
           </div>
-          <BsStarFill />
+          <BsStarFill className={css.satr} />
           <span>
             <a
+              className={css.reviewLink}
               href={`/catalog/${id}/reviews`}
               target="_blank"
               rel="noopener noreferrer"
@@ -59,8 +53,8 @@ const CamperCard = ({ camper }) => {
             <BsMap /> {location}
           </span>
           <p className={css.descriptionText}>{description}</p>
+          <OptionsList options={camper} variant="light" />
         </div>
-        <OptionsList options={camper} variant="light" />
         <a
           href={`/catalog/${id}/features`}
           target="_blank"

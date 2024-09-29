@@ -1,5 +1,35 @@
 .camperList {
     width: 888px;
-    min-height: 1568px;
+    /* min-height: 1568px; */
     /* margin-left: 64px; */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    margin: 0 auto;
+    vertical-align: bottom;
+    border-radius: 200px;
+    padding: 16px 20px;
+    width: 166px;
+    height: 56px;
+    background-color: transparent;
+    color: var(--main-color);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    border: 1px solid var(--gray-color);
+    transition: border 0.2s linear;
+}
+
+.button:hover {
+    border: 1px solid var(--button-hover-color);
 }

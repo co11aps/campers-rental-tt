@@ -9,6 +9,7 @@ import {
   BsGrid,
   BsGrid1X2,
   BsGrid3X3Gap,
+  BsMap,
   BsSuitHeart,
   BsWind,
 } from 'react-icons/bs';
@@ -34,13 +35,20 @@ const FiltersPanel = () => {
   return (
     <aside className={css.panel}>
       <form id="filters">
-        <div>
+        <div className={css.locationBlock}>
           <label htmlFor="locationField">Location</label>
-          <input type="text" name="location" id="locationField" />
+          <input
+            className={css.locationInput}
+            type="text"
+            name="location"
+            id="locationField"
+            placeholder="City"
+          />
+          <BsMap className={css.mapIcon} />
         </div>
         <p>Filters</p>
         <div>
-          <h2>Vehicle equipment</h2>
+          <h2 className={css.subTitle}>Vehicle equipment</h2>
           <div className={css.filtersContainer}>
             <FilterBtn
               type="checkbox"
@@ -106,7 +114,7 @@ const FiltersPanel = () => {
         </div>
 
         <div>
-          <h2>Vehicle type</h2>
+          <h2 className={css.subTitle}>Vehicle type</h2>
           <div className={css.filtersContainer}>
             <FilterBtn
               type="radio"
@@ -140,9 +148,13 @@ const FiltersPanel = () => {
             </FilterBtn>
           </div>
         </div>
-        <div>
-          <button type="submit">Search</button>
-          <button type="button">Reset filters</button>
+        <div className={css.buttonBlock}>
+          <button className={css.button} type="submit">
+            Search
+          </button>
+          <button className={css.resetButton} type="button">
+            Reset filters
+          </button>
         </div>
       </form>
     </aside>

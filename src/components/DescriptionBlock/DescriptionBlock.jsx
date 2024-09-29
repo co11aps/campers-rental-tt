@@ -8,7 +8,7 @@ import Gallery from '../Gallery/Gallery';
 
 const DescriptionBlock = () => {
   const isDataLoading = useSelector(isLoading);
-  const reLocation = useLocation();
+  const changeLocation = useLocation();
 
   const { name, description, price, location, gallery, id } =
     useSelector(selectCamperById);
@@ -21,14 +21,14 @@ const DescriptionBlock = () => {
         <div className={css.cardHeader}>
           <h2 className={css.camperName}>{name}</h2>
           <span>
-            <Link to={`/catalog/${id}/reviews`} state={reLocation}>
+            <Link to={`/catalog/${id}/reviews`} state={changeLocation}>
               <BsStarFill className={css.starIcon} /> 4.2 (10 Reviews)
             </Link>
             <BsMap /> {location}
           </span>
           <div>
             &#8364;
-            {price}
+            {price.toFixed(2)}
           </div>
           <div className={css.gallery}>
             <Gallery pictures={gallery} />

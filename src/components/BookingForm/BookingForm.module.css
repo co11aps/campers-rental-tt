@@ -1,5 +1,99 @@
 .bookingForm {
+    border: 1px solid var(--gray-light-color);
+    border-radius: 10px;
+    padding: 44px;
     width: 641px;
     height: 588px;
-    border: 1px solid green;
+}
+
+.pageTitle {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--main-color);
+    margin-bottom: 8px;
+}
+
+.pageSubTitle {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gray-color);
+    margin-bottom: 24px;
+}
+
+.formGroup {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+.formGroup input {
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--badges-color);
+    border-radius: 12px;
+    padding: 18px 18px 18px 18px;
+    width: 527px;
+    height: 60px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    outline: none;
+    border: none;
+}
+
+.commentArea {
+    padding: 14px;
+    border-radius: 12px;
+    color: var(--text-color);
+    background-color: var(--badges-color);
+    outline: transparent;
+    border: none;
+    resize: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.error {
+    color: var(--button-color);
+    margin-bottom: 20px;
+    position: absolute;
+    top: 100%;
+    left: 3%;
+    width: 100%;
+    font-size: 14px;
+}
+
+.button {
+    border-radius: 200px;
+    padding: 16px 60px;
+    margin-left: 180px;
+    width: 166px;
+    height: 56px;
+    background-color: var(--button-color);
+    color: var(--white-color);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+
+.formGroup input::placeholder {
+    color: var(--gray-color);
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
 }
