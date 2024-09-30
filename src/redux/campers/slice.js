@@ -7,7 +7,7 @@ const campersSlice = createSlice({
     items: [],
     visibleItems: [],
     page: 1,
-    itemsPerPage: 2,
+    itemsPerPage: 5,
     details: {},
     isLoading: false,
     error: null,
@@ -29,13 +29,22 @@ const campersSlice = createSlice({
       let filteredItems = state.items;
 
       if (selectedCheckboxes.length > 0) {
+        console.log(selectedCheckboxes);
+        console.log(
+          'before applyFilters',
+          JSON.parse(JSON.stringify(filteredItems))
+        );
         filteredItems = filteredItems.filter(item =>
-          selectedCheckboxes.every(checkbox => item.features.includes(checkbox))
+          selectedCheckboxes.every(checkbox => item[checkbox] === true)
+        );
+        console.log(
+          'after applyFilters',
+          JSON.parse(JSON.stringify(filteredItems))
         );
       }
 
       if (formFactor) {
-        filteredItems = filteredItems.filter(item => item.type === formFactor);
+        filteredItems = filteredItems.filter(item => item.form === formFactor);
       }
 
       if (showFavoritesOnly) {
