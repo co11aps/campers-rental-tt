@@ -89,9 +89,9 @@ const FiltersPanel = () => {
             <FilterBtn
               type="checkbox"
               name="filter"
-              value="automatic"
-              checked={selectedCheckboxes.includes('automatic')}
-              onChange={() => handleCheckboxChange('automatic')}
+              value="transmission"
+              checked={selectedCheckboxes.includes('transmission')}
+              onChange={() => handleCheckboxChange('transmission')}
             >
               <BsDiagram3 className={css.filerIcon} />
               <p>Automatic</p>

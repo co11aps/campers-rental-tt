@@ -65,3 +65,8 @@
 .link:hover::before {
     width: 100%;
 }
+
+.loader {
+    margin-top: 50%;
+    justify-content: center;
+}

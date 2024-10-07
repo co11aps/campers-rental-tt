@@ -2,21 +2,20 @@ import css from './DescriptionBlock.module.css';
 import { BsMap, BsStarFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { isLoading, selectCamperById } from '../../redux/campers/selectors';
+import { isLoading } from '../../redux/campers/selectors';
 import Gallery from '../Gallery/Gallery';
 // import Loader from '../Loader/Loader';
 
-const DescriptionBlock = () => {
+const DescriptionBlock = ({ camper }) => {
   const isDataLoading = useSelector(isLoading);
   const changeLocation = useLocation();
 
-  const { name, description, price, location, gallery, id } =
-    useSelector(selectCamperById);
+  const { name, description, price, location, gallery, id } = camper;
 
   return (
     <div className={css.cardHeader}>
       {isDataLoading ? (
-        <div>Loading...</div>
+        <div>Loading description...</div>
       ) : (
         <>
           <h2 className={css.camperName}>{name}</h2>

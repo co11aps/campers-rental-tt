@@ -35,10 +35,7 @@ const campersSlice = createSlice({
           JSON.parse(JSON.stringify(filteredItems))
         );
         filteredItems = filteredItems.filter(item =>
-          selectedCheckboxes.every(
-            checkbox =>
-              item[checkbox] === true || item[checkbox] === 'automatic'
-          )
+          selectedCheckboxes.every(checkbox => item[checkbox] === true)
         );
         console.log(
           'after applyFilters',
@@ -78,9 +75,9 @@ const campersSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchCamperById.fulfilled, (state, action) => {
-        state.details = action.payload;
-        state.error = null;
         state.isLoading = false;
+        state.error = null;
+        state.details = action.payload;
       })
       .addCase(fetchCamperById.rejected, (state, action) => {
         state.isLoading = false;
